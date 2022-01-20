@@ -59,3 +59,9 @@ python manage.py createsuperuser (asset, 123, asset@email.com)
 ```
 
 # Examples
+
+Here are the examples of tables from the SQL Database:
+![1](https://user-images.githubu![23](https://user-images.githubusercontent.com/82859085/150420736-553df3f9-c4b7-4a96-bfa7-088434d70cb6.PNG)
+sercontent.com/82859085/150420721-2d96a41b-97be-4286-a6c1-39fa76dafa10.PNG)
+
+
