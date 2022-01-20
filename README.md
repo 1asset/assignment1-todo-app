@@ -57,3 +57,5 @@ python manage.py migrate
 ```bash
 python manage.py createsuperuser (asset, 123, asset@email.com)
 ```
+
+# Examples
