@@ -1,33 +1,56 @@
+<div style='padding-left: 20px;'>
 {% if request.user.is_authenticated %}
 <p>{{request.user}}</p>
 <a href="{% url 'logout' %}">Logout</a>
 {% else %}
 <a href="{% url 'login' %}">Login</a>
 {% endif %}
+</div>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+<style> 
+
+.content {
+    max-width: 500px;
+    margin: auto;
+  }
+
+</style>
 
 <hr>
-<h1> My To Do List {{color}}</h1>
-<a href="{% url 'task-create' %}">Add Task</a>
+
+<div class='content'>
+<h1 style='font-family:cursive;'> Your To Do List {{color}}</h1>
+<button type="submit" class="btn btn-info" style='background-color:yellow'><a href="{% url 'task-create' %}" style='color:black; text-decoration: none;'><i class='glyphicon glyphicon-plus-sign'></i> ADD TASK</a></button>
+
+<br><br>
 
 <form method="GET">
-    <input type='text' name='search-area' value="{{search_input}}">
-    <input type="submit" value='Search'>
+    <input type='text' class="form-control form-control-lg" name='search-area' value="{{search_input}}">
+    <br>
+    <input type="submit" class="btn btn-primary" value='Search'>
 </form>
 
 <table>
     <tr>
-        <th>Item</th>
+        <th>Tasks</th>
         <th></th>
         <th></th>
     </tr>
     {% for task in tasks %}
     <tr>
         <td>{{task.title}}</td>
-        <td><a href="{% url 'task' task.id %}">View</a></td>
-        <td><a href="{% url 'task-update' task.id %}">Edit</a></td>
-        <td><a href="{% url 'task-delete' task.id %}">Delete</a></td>
+        <td><button type="submit" class="btn btn-success" style='margin:3px'><a href="{% url 'task' task.id %}"; style='color:white; text-decoration: none;'>View</a></button></td>
+        <td><button type="submit" class="btn btn-primary" style='margin:3px'><a href="{% url 'task-update' task.id %}"; style='color:white; text-decoration: none;'>Edit</a></button></td>
+        <td><button type="submit" class="btn btn-danger" style='margin:3px'><a href="{% url 'task-delete' task.id %}"; style='color:white; text-decoration: none;'>Delete</a></button></td>
     </tr>
     {% empty %}
-    <h3>No items in list</h3>
+    <h3>No tasks to do</h3>
     {% endfor %}
 </table>
+</div>
